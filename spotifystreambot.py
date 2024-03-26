@@ -1,47 +1,138 @@
-from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.common.by import By
-from selenium.webdriver.chrome.options import Options
-from selenium.common.exceptions import NoSuchElementException
-
-import requests
-import webbrowser
-import random
-import pytz
-import time
+#!/usr/bin/env python3
 import os
-import keyboard
-from colorama import Fore
-from pystyle import Center, Colors, Colorate
+import random
 import time
+import webbrowser
 
-os.system(f"title Kichi779 - Spotify Streaming bot v1 ")
+print("Starting the script...")
+# import keyboard
+import pytz
+
+# import requests
+
+print("3Starting the script...")
+
+from selenium.common.exceptions import NoSuchElementException
+# from selenium.webdriver.chrome.options import Options
+# from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.common.by import By
+# from colorama import Fore
+# from pystyle import Center, Colorate, Colors
+from seleniumwire import webdriver
+
+# from .driver_initialization import Initializer
+
+print("2Starting the script...")
+
+# os.system(f"title Kichi779 - Spotify Streaming bot v1 ")
 
 url = "https://github.com/Kichi779/Spotify-Streaming-Bot/"
 
-def check_for_updates():
-    try:
-        r = requests.get("https://raw.githubusercontent.com/Kichi779/Spotify-Streaming-Bot/main/version.txt")
-        remote_version = r.content.decode('utf-8').strip()
-        local_version = open('version.txt', 'r').read().strip()
-        if remote_version != local_version:
-            print(Colors.red, Center.XCenter("A new version is available. Please download the latest version from GitHub"))
-            time.sleep(2)
-            webbrowser.open(url)
-            return False
-        return True
-    except:
-        return True
+# def check_for_updates():
+#     try:
+#         r = requests.get("https://raw.githubusercontent.com/Kichi779/Spotify-Streaming-Bot/main/version.txt")
+#         remote_version = r.content.decode('utf-8').strip()
+#         local_version = open('version.txt', 'r').read().strip()
+#         if remote_version != local_version:
+#             print(Colors.red, Center.XCenter("A new version is available. Please download the latest version from GitHub"))
+#             time.sleep(2)
+#             webbrowser.open(url)
+#             return False
+#         return True
+#     except:
+#         return True
 
-def print_announcement():
-    try:
-        r = requests.get("https://raw.githubusercontent.com/Kichi779/Spotify-Streaming-Bot/main/announcement.txt", headers={"Cache-Control": "no-cache"})
-        announcement = r.content.decode('utf-8').strip()
-        return announcement
-    except:
-        print("Could not retrieve announcement from GitHub.\n")
+# def print_announcement():
+#     try:
+#         r = requests.get("https://raw.githubusercontent.com/Kichi779/Spotify-Streaming-Bot/main/announcement.txt", headers={"Cache-Control": "no-cache"})
+#         announcement = r.content.decode('utf-8').strip()
+#         return announcement
+#     except:
+#         print("Could not retrieve announcement from GitHub.\n")
 
 supported_timezones = pytz.all_timezones
+
+
+import logging
+
+# to add capabilities for chrome and firefox, import their Options with different aliases
+from selenium.webdriver.chrome.options import Options as ChromeOptions
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
+from seleniumwire import webdriver
+# import webdriver for downloading respective driver for the browser
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
+
+logger = logging.getLogger(__name__)
+format = logging.Formatter(
+    "%(asctime)s - %(name)s - %(levelname)s - %(message)s")
+ch = logging.StreamHandler()
+ch.setFormatter(format)
+logger.addHandler(ch)
+
+
+class Initializer:
+
+    def __init__(self, browser_name, proxy=None, headless=True):
+        self.browser_name = browser_name
+        self.proxy = proxy
+        self.headless = headless
+
+    def set_properties(self, browser_option):
+        """adds capabilities to the driver"""
+        # if self.headless:
+        #     browser_option.add_argument(
+        #         '--headless')  # runs browser in headless mode
+        browser_option.add_argument('--no-sandbox')
+        browser_option.add_argument("--disable-dev-shm-usage")
+        browser_option.add_argument('--ignore-certificate-errors')
+        browser_option.add_argument('--disable-gpu')
+        browser_option.add_argument('--log-level=3')
+        browser_option.add_argument('--disable-notifications')
+        browser_option.add_argument('--disable-popup-blocking')
+        return browser_option
+
+    def set_driver_for_browser(self, browser_name):
+        """expects browser name and returns a driver instance"""
+        logger.setLevel(logging.INFO)
+        # if browser is suppose to be chrome
+        if browser_name.lower() == "chrome":
+            browser_option = ChromeOptions()
+            # automatically installs chromedriver and initialize it and returns the instance
+            if self.proxy is not None:
+                options = {
+                    'https': 'https://{}'.format(self.proxy.replace(" ", "")),
+                    'http': 'http://{}'.format(self.proxy.replace(" ", "")),
+                    'no_proxy': 'localhost, 127.0.0.1'
+                }
+                logger.info("Using: {}".format(self.proxy))
+                return webdriver.Chrome(executable_path=ChromeDriverManager().install(),
+                                        options=self.set_properties(browser_option), seleniumwire_options=options)
+
+            return webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=self.set_properties(browser_option))
+        elif browser_name.lower() == "firefox":
+            browser_option = FirefoxOptions()
+            if self.proxy is not None:
+                options = {
+                    'https': 'https://{}'.format(self.proxy.replace(" ", "")),
+                    'http': 'http://{}'.format(self.proxy.replace(" ", "")),
+                    'no_proxy': 'localhost, 127.0.0.1'
+                }
+                logger.info("Using: {}".format(self.proxy))
+                return webdriver.Firefox(executable_path=GeckoDriverManager().install(),
+                                         options=self.set_properties(browser_option), seleniumwire_options=options)
+
+            # automatically installs geckodriver and initialize it and returns the instance
+            return webdriver.Firefox(executable_path=GeckoDriverManager().install(), options=self.set_properties(browser_option))
+        else:
+            # if browser_name is not chrome neither firefox than raise an exception
+            raise Exception("Browser not supported!")
+
+    def init(self):
+        """returns driver instance"""
+        driver = self.set_driver_for_browser(self.browser_name)
+        return driver
+
 
 def set_random_timezone(driver):
     random_timezone = random.choice(supported_timezones)
@@ -56,26 +147,26 @@ def set_fake_geolocation(driver, latitude, longitude):
     driver.execute_cdp_cmd("Emulation.setGeolocationOverride", params)
 
 def main():
-    if not check_for_updates():
-        return
-    announcement = print_announcement()
-    print(Colorate.Vertical(Colors.white_to_green, Center.XCenter("""
+    # if not check_for_updates():
+    #     return
+#     announcement = print_announcement()
+#     print(Colorate.Vertical(Colors.white_to_green, Center.XCenter("""
            
-                       ▄█   ▄█▄  ▄█    ▄████████    ▄█    █▄     ▄█  
-                       ███ ▄███▀ ███   ███    ███   ███    ███   ███  
-                       ███▐██▀   ███▌  ███    █▀    ███    ███   ███▌ 
-                      ▄█████▀    ███▌  ███         ▄███▄▄▄▄███▄▄ ███▌ 
-                     ▀▀█████▄    ███▌  ███        ▀▀███▀▀▀▀███▀  ███▌ 
-                       ███▐██▄   ███   ███    █▄    ███    ███   ███  
-                       ███ ▀███▄ ███   ███    ███   ███    ███   ███  
-                       ███   ▀█▀ █▀    ████████▀    ███    █▀    █▀   
-                       ▀                                             
- Improvements can be made to the code. If you're getting an error, visit my discord.  
-                             Github  github.com/kichi779    """)))
-    print("")
-    print(Colors.red, Center.XCenter("ANNOUNCEMENT"))
-    print(Colors.yellow, Center.XCenter(f"{announcement}"))
-    print("")
+#                        ▄█   ▄█▄  ▄█    ▄████████    ▄█    █▄     ▄█  
+#                        ███ ▄███▀ ███   ███    ███   ███    ███   ███  
+#                        ███▐██▀   ███▌  ███    █▀    ███    ███   ███▌ 
+#                       ▄█████▀    ███▌  ███         ▄███▄▄▄▄███▄▄ ███▌ 
+#                      ▀▀█████▄    ███▌  ███        ▀▀███▀▀▀▀███▀  ███▌ 
+#                        ███▐██▄   ███   ███    █▄    ███    ███   ███  
+#                        ███ ▀███▄ ███   ███    ███   ███    ███   ███  
+#                        ███   ▀█▀ █▀    ████████▀    ███    █▀    █▀   
+#                        ▀                                             
+#  Improvements can be made to the code. If you're getting an error, visit my discord.  
+#                              Github  github.com/kichi779    """)))
+#     print("")
+#     print(Colors.red, Center.XCenter("ANNOUNCEMENT"))
+#     print(Colors.yellow, Center.XCenter(f"{announcement}"))
+#     print("")
 
     user_agents = [
     # Chrome (Windows)
@@ -125,17 +216,18 @@ def main():
     with open('accounts.txt', 'r') as file:
         accounts = file.readlines()
 
-    proxies = []
+    # proxies = []
 
-    use_proxy = input(Colorate.Vertical(Colors.green_to_blue, "Do you want to use proxies? (y/n):"))
+    # use_proxy = input(Colorate.Vertical(Colors.green_to_blue, "Do you want to use proxies? (y/n):"))
 
-    if use_proxy.lower() == 'y':
-        print(Colors.red, Center.XCenter("The proxy system will be added after 50 stars. I continue to process without a proxy"))
-        with open('proxy.txt', 'r') as file:
-            proxies = file.readlines()
-        time.sleep(3)
+    # if use_proxy.lower() == 'y':
+    #     print(Colors.red, Center.XCenter("The proxy system will be added after 50 stars. I continue to process without a proxy"))
+    #     with open('proxy.txt', 'r') as file:
+    #         proxies = file.readlines()
+    #     time.sleep(3)
 
-    spotify_song = input(Colorate.Vertical(Colors.green_to_blue, "Enter the Spotify song URL (e.g https://open.spotify.com/track/5hFkGfx038V0LhqI0Uff2J?si=bf290dcc9a994c36):"))
+    spotify_song = "https://open.spotify.com/track/1dzWH11jyP8gEQia6rZv7f?si=122335bd4f0e434c"
+    # spotify_song = input(Colorate.Vertical(Colors.green_to_blue, "Enter the Spotify song URL (e.g https://open.spotify.com/track/5hFkGfx038V0LhqI0Uff2J?si=bf290dcc9a994c36):"))
 
     drivers = []
 
@@ -163,7 +255,8 @@ def main():
             'profile.default_content_setting_values.notifications': 2
         })
 
-        driver = webdriver.Chrome(service=Service(driver_path), options=chrome_options)
+        driver =  Initializer("firefox").init()
+        # driver = webdriver.Chrome(service=Service(driver_path), options=chrome_options)
 
         username, password = account.strip().split(':')
 
@@ -177,14 +270,14 @@ def main():
             password_input.send_keys(password)
 
             driver.find_element(By.CSS_SELECTOR, "button[data-testid='login-button']").click()
-
+            print("he")
             time.sleep(delay)
 
             driver.get(spotify_song)
 
             driver.maximize_window()
 
-            keyboard.press_and_release('esc')
+            # keyboard.press_and_release('esc')
 
             time.sleep(10)
 
@@ -204,10 +297,10 @@ def main():
 
             time.sleep(1)
 
-            print(Colors.green, "Username: {} - Listening process has started.".format(username))
+            print("Username: {} - Listening process has started.".format(username))
 
         except Exception as e:
-            print(Colors.red, "An error occurred in the bot system:", str(e))
+            print("An error occurred in the bot system:", str(e))
 
         set_random_timezone(driver)
         

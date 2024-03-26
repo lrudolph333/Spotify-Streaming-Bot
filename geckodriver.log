@@ -1,0 +1,73 @@
+1711434312451	geckodriver	INFO	Listening on 127.0.0.1:59062
+1711434312966	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/c2/hn7s3z5d48q5rs9vg81jg4dw0000gn/T/rust_mozprofile8hXpZo"
+*** You are running in headless mode.
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1711434313553	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-no-sandbox"
+console.error: "Warning: unrecognized command line flag" "-ignore-certificate-errors"
+console.error: "Warning: unrecognized command line flag" "-log-level"
+console.error: "Warning: unrecognized command line flag" "-disable-notifications"
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1711434313795	Marionette	INFO	Listening on port 59070
+WebDriver BiDi listening on ws://127.0.0.1:59063
+1711434313883	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1711434313887	RemoteAgent	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"[::ffff:7f00:1]:59061","sslProxy":"[::ffff:7f00:1]:59061"}
+[GFX1-]: RenderCompositorSWGL failed mapping default framebuffer, no dt
+DevTools listening on ws://127.0.0.1:59063/devtools/browser/e2dd990e-3b23-40a9-b6b1-8885e99b769e
+1711434321389	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.2a5211f4.js, line 1: TypeError: The event is invalid and has been rejected for reason: UNKNOWN_OWNER
+1711434343730	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+1711434407356	geckodriver	INFO	Listening on 127.0.0.1:59404
+1711434407862	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/c2/hn7s3z5d48q5rs9vg81jg4dw0000gn/T/rust_mozprofile3z3PbD"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1711434408191	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-no-sandbox"
+console.error: "Warning: unrecognized command line flag" "-ignore-certificate-errors"
+console.error: "Warning: unrecognized command line flag" "-log-level"
+console.error: "Warning: unrecognized command line flag" "-disable-notifications"
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1711434408395	Marionette	INFO	Listening on port 59412
+WebDriver BiDi listening on ws://127.0.0.1:59405
+1711434408477	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1711434408480	RemoteAgent	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"[::ffff:7f00:1]:59403","sslProxy":"[::ffff:7f00:1]:59403"}
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:59405/devtools/browser/df01e33f-0afb-4e6c-9b00-17ea0da6080f
+1711434416700	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: resource://gre/modules/PrivateBrowsingUtils.sys.mjs, line 19: TypeError: aWindow is null
+console.error: "Can't show external protocol dialog. BrowsingContext has no chrome window associated."
+JavaScript error: chrome://browser/content/browser.js, line 4692: TypeError: gBrowser is undefined
+1711434439179	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript error: resource://gre/modules/PrivateBrowsingUtils.sys.mjs, line 19: TypeError: aWindow is null
+1711434538871	geckodriver	INFO	Listening on 127.0.0.1:59820
+1711434539370	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/c2/hn7s3z5d48q5rs9vg81jg4dw0000gn/T/rust_mozprofile6i50LL"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1711434539784	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-no-sandbox"
+console.error: "Warning: unrecognized command line flag" "-ignore-certificate-errors"
+console.error: "Warning: unrecognized command line flag" "-log-level"
+console.error: "Warning: unrecognized command line flag" "-disable-notifications"
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1711434540071	Marionette	INFO	Listening on port 59828
+WebDriver BiDi listening on ws://127.0.0.1:59821
+1711434540231	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1711434540234	RemoteAgent	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"[::ffff:7f00:1]:59819","sslProxy":"[::ffff:7f00:1]:59819"}
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:59821/devtools/browser/927d3a27-25aa-478d-be68-b20dff3fccd3
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1711434549144	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.2a5211f4.js, line 1: TypeError: The event is invalid and has been rejected for reason: UNKNOWN_OWNER
+1711434569917	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/web-player.c2ff65c4.js, line 1: HttpResponseError: 
+JavaScript error: resource://gre/modules/PrivateBrowsingUtils.sys.mjs, line 19: TypeError: aWindow is null
+JavaScript warning: https://www.googletagmanager.com/gtag/js?id=G-ZWG1NSHWD8&l=dataLayer&cx=c, line 288: Script terminated by timeout at:
+Fm.prototype.flush@https://www.googletagmanager.com/gtag/js?id=G-ZWG1NSHWD8&l=dataLayer&cx=c:288:28
+FH/<@https://www.googletagmanager.com/gtag/js?id=G-ZWG1NSHWD8&l=dataLayer&cx=c:575:142
+aa.Tk/<@https://www.googletagmanager.com/gtag/js?id=G-ZWG1NSHWD8&l=dataLayer&cx=c:523:126
+aa.Tk/c/<@https://www.googletagmanager.com/gtag/js?id=G-ZWG1NSHWD8&l=dataLayer&cx=c:522:420
+i@https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.2a5211f4.js:1:77941
+
+JavaScript error: chrome://browser/content/browser.js, line 4692: TypeError: gBrowser is undefined
+JavaScript error: resource://gre/modules/PrivateBrowsingUtils.sys.mjs, line 19: TypeError: aWindow is null
