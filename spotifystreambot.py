@@ -66,6 +66,48 @@ ch = logging.StreamHandler()
 ch.setFormatter(format)
 logger.addHandler(ch)
 
+user_agents = [
+# Chrome (Windows)
+"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36",
+"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36",
+"Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36",
+
+# Chrome (Mac)
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15",
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 11_4_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36",
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36",
+
+# Firefox (Windows)
+"Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0",
+"Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0",
+"Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0",
+
+# Firefox (Mac)
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:93.0) Gecko/20100101 Firefox/93.0",
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 11.4; rv:93.0) Gecko/20100101 Firefox/93.0",
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:93.0) Gecko/20100101 Firefox/93.0",
+
+# Safari (Mac)
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15",
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 11_4_0) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15",
+"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15",
+
+# Opera (Windows)
+"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36 OPR/80.0.4170.61",
+"Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36 OPR/80.0.4170.61",
+"Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36 OPR/80.0.4170.61"
+]
+
+#FAKE Language
+supported_languages = [
+"en-US", "en-GB", "en-CA", "en-AU", "en-NZ", "fr-FR", "fr-CA", "fr-BE", "fr-CH", "fr-LU",
+"de-DE", "de-AT", "de-CH", "de-LU", "es-ES", "es-MX", "es-AR", "es-CL", "es-CO", "es-PE",
+"it-IT", "it-CH", "ja-JP", "ko-KR", "pt-BR", "pt-PT", "ru-RU", "tr-TR", "nl-NL", "nl-BE",
+"sv-SE", "da-DK", "no-NO"
+]
+
+random_user_agent = random.choice(user_agents)
+
 
 class Initializer:
 
@@ -86,6 +128,33 @@ class Initializer:
         browser_option.add_argument('--log-level=3')
         browser_option.add_argument('--disable-notifications')
         browser_option.add_argument('--disable-popup-blocking')
+        random_language = random.choice(supported_languages)
+
+        browser_option = webdriver.ChromeOptions()
+        browser_option.add_experimental_option('excludeSwitches', ["enable-automation", 'enable-logging', "disable-popup-blocking"])
+        browser_option.add_argument('--disable-logging')
+        # browser_option.add_argument('--log-level=3')
+        browser_option.add_argument('--disable-infobars')
+        browser_option.add_argument('--disable-extensions')
+        browser_option.add_argument("--window-size=1366,768")
+        browser_option.add_argument("--lang=en-US,en;q=0.9")
+        browser_option.add_argument("--disable-notifications")
+        # browser_option.add_argument(f"--user-agent={random_user_agent}")
+        browser_option.add_argument(f"--lang={random_language}")
+        browser_option.add_argument("--mute-audio")
+        browser_option.add_argument('--disable-dev-shm-usage')
+        browser_option.add_experimental_option('prefs', {
+            'profile.default_content_setting_values.notifications': 2
+        })
+        browser_option.add_argument("--user-data-dir=/Users/godye/Library/Application Support/Google/Chrome/Profile 1")
+
+        # Set preferences to block pop-ups
+        prefs = {
+            "profile.default_content_setting_values.popups": 2,  # Block pop-ups
+            "profile.default_content_setting_values.notifications": 2  # Block notifications
+        }
+        browser_option.add_experimental_option("prefs", prefs)
+    
         return browser_option
 
     def set_driver_for_browser(self, browser_name):
@@ -168,47 +237,6 @@ def main():
     # print(Colors.yellow, Center.XCenter(f"{announcement}"))
     print("")
 
-    user_agents = [
-    # Chrome (Windows)
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36",
-
-    # Chrome (Mac)
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_4_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36",
-
-    # Firefox (Windows)
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0",
-    "Mozilla/5.0 (Windows NT 6.1; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0",
-    "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:93.0) Gecko/20100101 Firefox/93.0",
-
-    # Firefox (Mac)
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:93.0) Gecko/20100101 Firefox/93.0",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 11.4; rv:93.0) Gecko/20100101 Firefox/93.0",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.14; rv:93.0) Gecko/20100101 Firefox/93.0",
-
-    # Safari (Mac)
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 11_4_0) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_6) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/14.1.2 Safari/605.1.15",
-
-    # Opera (Windows)
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36 OPR/80.0.4170.61",
-    "Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36 OPR/80.0.4170.61",
-    "Mozilla/5.0 (Windows NT 6.3; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.61 Safari/537.36 OPR/80.0.4170.61"
-    ]
-    
-    #FAKE Language
-    supported_languages = [
-    "en-US", "en-GB", "en-CA", "en-AU", "en-NZ", "fr-FR", "fr-CA", "fr-BE", "fr-CH", "fr-LU",
-    "de-DE", "de-AT", "de-CH", "de-LU", "es-ES", "es-MX", "es-AR", "es-CL", "es-CO", "es-PE",
-    "it-IT", "it-CH", "ja-JP", "ko-KR", "pt-BR", "pt-PT", "ru-RU", "tr-TR", "nl-NL", "nl-BE",
-    "sv-SE", "da-DK", "no-NO"
-    ]
-
-    random_user_agent = random.choice(user_agents)
 
     with open('accounts.txt', 'r') as file:
         accounts = file.readlines()
@@ -232,89 +260,87 @@ def main():
 
     delay = random.uniform(2, 6)
     delay2 = random.uniform(5, 14)
+    stream_count = 0
+    driver =  Initializer("chrome").init()
 
-    for account in accounts:
+    while stream_count < 1000:
+        for account in accounts:
 
-        random_language = random.choice(supported_languages)
+        
+            # driver = webdriver.Chrome(service=Service(driver_path), options=chrome_options)
 
-        chrome_options = webdriver.ChromeOptions()
-        chrome_options.add_experimental_option('excludeSwitches', ["enable-automation", 'enable-logging'])
-        chrome_options.add_argument('--disable-logging')
-        chrome_options.add_argument('--log-level=3')
-        chrome_options.add_argument('--disable-infobars')
-        chrome_options.add_argument('--disable-extensions')
-        chrome_options.add_argument("--window-size=1366,768")
-        chrome_options.add_argument("--lang=en-US,en;q=0.9")
-        chrome_options.add_argument("--disable-notifications")
-        chrome_options.add_argument(f"--user-agent={random_user_agent}")
-        chrome_options.add_argument(f"--lang={random_language}")
-        chrome_options.add_argument("--mute-audio")
-        chrome_options.add_argument('--disable-dev-shm-usage')
-        chrome_options.add_experimental_option('prefs', {
-            'profile.default_content_setting_values.notifications': 2
-        })
-        chrome_options.add_argument("--user-data-dir=/private/var/folders/c2/hn7s3z5d48q5rs9vg81jg4dw0000gn/T/.org.chromium.Chromium.O5oTV0/Default")
-
-        driver =  Initializer("chrome").init()
-        # driver = webdriver.Chrome(service=Service(driver_path), options=chrome_options)
-
-        username, password = account.strip().split(':')
-
-        try:
-            driver.get("https://www.spotify.com/us/login/")
-
-            username_input = driver.find_element(By.CSS_SELECTOR, "input#login-username")
-            password_input = driver.find_element(By.CSS_SELECTOR, "input#login-password")
-
-            username_input.send_keys(username)
-            password_input.send_keys(password)
-
-            driver.find_element(By.CSS_SELECTOR, "button[data-testid='login-button']").click()
-            print("he")
-            time.sleep(delay)
-
-            driver.get(spotify_song)
-
-            driver.maximize_window()
-
-            # keyboard.press_and_release('esc')
-
-            time.sleep(3)
+            username, password = account.strip().split(':')
 
             try:
-                cookie = driver.find_element(By.XPATH, "//button[text()='Accept Cookies']")
-                cookie.click()
-            except NoSuchElementException:
+                driver.get("https://www.spotify.com/us/login/")
                 try:
-                    button = driver.find_element(By.XPATH, "//button[contains(@class,'onetrust-close-btn-handler onetrust-close-btn-ui')]")
-                    button.click()
+                    username_input = driver.find_element(By.CSS_SELECTOR, "input#login-username")
+                    password_input = driver.find_element(By.CSS_SELECTOR, "input#login-password")
+
+                    username_input.send_keys(username)
+                    password_input.send_keys(password)
+
+                    driver.find_element(By.CSS_SELECTOR, "button[data-testid='login-button']").click()
                 except NoSuchElementException:
-                    time.sleep(delay2)
+                    # print("no login element")
+                    time.sleep(2)
+                time.sleep(delay)
 
-            time.sleep(2)
-            playmusic_xpath = "(//button[@data-testid='play-button']//span)[3]"
-            playmusic = driver.find_element(By.XPATH, playmusic_xpath)
-            playmusic.click()
-            print("clicked")
+                driver.get(spotify_song)
 
-            time.sleep(1)
+                driver.maximize_window()
 
-            print("Username: {} - Listening process has started.".format(username))
+                # keyboard.press_and_release('esc')
 
-        except Exception as e:
-            print("An error occurred in the bot system:", str(e))
+                time.sleep(3)
 
-        # TODO reimplement these
-        # set_random_timezone(driver)
-        
-        # # FAKE LOCATION
-        # latitude = random.uniform(-90, 90)
-        # longitude = random.uniform(-180, 180)
-        # set_fake_geolocation(driver, latitude, longitude)
+                try:
+                    cookie = driver.find_element(By.XPATH, "//button[text()='Accept Cookies']")
+                    cookie.click()
+                except NoSuchElementException:
+                    try:
+                        button = driver.find_element(By.XPATH, "//button[contains(@class,'onetrust-close-btn-handler onetrust-close-btn-ui')]")
+                        button.click()
+                    except NoSuchElementException:
+                        time.sleep(delay2)
 
-        drivers.append(driver)
+                time.sleep(2)
+                playmusic_xpath = "(//button[@data-testid='play-button']//span)[3]"
+                playmusic = driver.find_element(By.XPATH, playmusic_xpath)
+                playmusic.click()
+                play_duration = random.uniform(35, 45)
 
-        time.sleep(5)
+                print("playing So What for {} seconds...".format(play_duration))
+
+                # wait for the song to finish
+                time.sleep(play_duration)
+
+                print("Username: {} - Listening process has finished, count: {}\n".format(username, stream_count))
+
+                # Before ending the iteration, open a new tab
+                # driver.execute_script("window.open('about:blank', 'secondtab');")
+                # # Switch to the new tab, which will be at index 1
+                # driver.switch_to.window(driver.window_handles[1])
+                # # Close the other tab, which will be at index 0
+                # driver.close()
+                # # Switch back to the first tab, now the only tab
+                # driver.switch_to.window(driver.window_handles[0])
+            except Exception as e:
+                print("An error occurred in the bot system:", str(e))
+
+            # TODO reimplement these
+            # set_random_timezone(driver)
+            
+            # # FAKE LOCATION
+            # latitude = random.uniform(-90, 90)
+            # longitude = random.uniform(-180, 180)
+            # set_fake_geolocation(driver, latitude, longitude)
+            finally:
+                # Consider moving driver appending here if you wish to keep it for later use
+                # drivers.append(driver)
+                stream_count += 1
+                pass
+            time.sleep(5)
 
     print(Colors.blue, "Stream operations are completed. You can stop all transactions by closing the program.")
 
