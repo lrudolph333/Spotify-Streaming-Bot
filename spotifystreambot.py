@@ -232,8 +232,8 @@ def main():
  Improvements can be made to the code. If you're getting an error, visit my discord.  
                              Github  github.com/kichi779    """)))
     print("")
-    print(Colors.red, Center.XCenter("ANNOUNCEMENT"))
-    print(Colors.yellow, Center.XCenter(f"yellows"))
+    # print(Colors.red, Center.XCenter("ANNOUNCEMENT"))
+    # print(Colors.yellow, Center.XCenter(f"yellows"))
     # print(Colors.yellow, Center.XCenter(f"{announcement}"))
     print("")
 
@@ -305,9 +305,13 @@ def main():
                         time.sleep(delay2)
 
                 time.sleep(2)
-                playmusic_xpath = "(//button[@data-testid='play-button']//span)[3]"
-                playmusic = driver.find_element(By.XPATH, playmusic_xpath)
-                playmusic.click()
+                # playmusic_xpath = "(//button[@data-testid='play-button']//span)[3]"
+                # # playmusic_xpath = "(//button[@data-testid='play-button']//span)[3]"
+                # playmusic = driver.find_element(By.XPATH, playmusic_xpath)
+                # playmusic.click()
+                play_button = driver.find_element(By.CSS_SELECTOR, "button[aria-label='Play']")
+                # play_button = driver.find_element(By.CSS_SELECTOR, "button[data-testid='play-button']")
+                play_button.click()
                 play_duration = random.uniform(35, 45)
 
                 print("playing So What for {} seconds...".format(play_duration))
@@ -318,13 +322,13 @@ def main():
                 print("Username: {} - Listening process has finished, count: {}\n".format(username, stream_count))
 
                 # Before ending the iteration, open a new tab
-                # driver.execute_script("window.open('about:blank', 'secondtab');")
-                # # Switch to the new tab, which will be at index 1
-                # driver.switch_to.window(driver.window_handles[1])
-                # # Close the other tab, which will be at index 0
-                # driver.close()
-                # # Switch back to the first tab, now the only tab
-                # driver.switch_to.window(driver.window_handles[0])
+                driver.execute_script("window.open('about:blank', 'secondtab');")
+                # Switch to the new tab, which will be at index 1
+                driver.switch_to.window(driver.window_handles[1])
+                # Close the other tab, which will be at index 0
+                driver.close()
+                # Switch back to the first tab, now the only tab
+                driver.switch_to.window(driver.window_handles[0])
             except Exception as e:
                 print("An error occurred in the bot system:", str(e))
 
