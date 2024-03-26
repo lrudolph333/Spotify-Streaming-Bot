@@ -71,3 +71,79 @@ i@https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.2a5211f4.js
 
 JavaScript error: chrome://browser/content/browser.js, line 4692: TypeError: gBrowser is undefined
 JavaScript error: resource://gre/modules/PrivateBrowsingUtils.sys.mjs, line 19: TypeError: aWindow is null
+1711470604770	geckodriver	INFO	Listening on 127.0.0.1:62227
+1711470605181	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/c2/hn7s3z5d48q5rs9vg81jg4dw0000gn/T/rust_mozprofileoPNhDY"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1711470605701	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-no-sandbox"
+console.error: "Warning: unrecognized command line flag" "-ignore-certificate-errors"
+console.error: "Warning: unrecognized command line flag" "-log-level"
+console.error: "Warning: unrecognized command line flag" "-disable-notifications"
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1711470605927	Marionette	INFO	Listening on port 62235
+WebDriver BiDi listening on ws://127.0.0.1:62228
+1711470606018	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1711470606021	RemoteAgent	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"[::ffff:7f00:1]:62226","sslProxy":"[::ffff:7f00:1]:62226"}
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:62228/devtools/browser/f41e2f23-d13f-4217-9e23-80f399e60803
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+JavaScript warning: https://bat.bing.com/bat.js, line 1: Script terminated by timeout at:
+UET/this.clone@https://bat.bing.com/bat.js:1:39206
+UET/this.combine@https://bat.bing.com/bat.js:1:39324
+UET/this.fireSendBeacon@https://bat.bing.com/bat.js:1:40638
+UET/this.firePageHide@https://bat.bing.com/bat.js:1:40281
+
+1711470615026	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1711470635741	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/web-player.69d19599.js, line 1: PlayerAPIClientError: No such device.
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.021f72ad.js, line 1: DealerError: Cannot connect to dealer
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.021f72ad.js, line 1: EMEError: No supported keysystem was found.
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.021f72ad.js, line 1: PlaybackError: No supported keysystem was found.
+1711470941926	geckodriver	INFO	Listening on 127.0.0.1:63012
+1711470942437	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/c2/hn7s3z5d48q5rs9vg81jg4dw0000gn/T/rust_mozprofile9gDH9K"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1711470942999	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-no-sandbox"
+console.error: "Warning: unrecognized command line flag" "-ignore-certificate-errors"
+console.error: "Warning: unrecognized command line flag" "-log-level"
+console.error: "Warning: unrecognized command line flag" "-disable-notifications"
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1711470943217	Marionette	INFO	Listening on port 63020
+WebDriver BiDi listening on ws://127.0.0.1:63013
+1711470943388	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1711470943392	RemoteAgent	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"[::ffff:7f00:1]:63011","sslProxy":"[::ffff:7f00:1]:63011"}
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:63013/devtools/browser/cd0e5010-7cf1-4b76-92f7-940bedbad777
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1711470951256	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/web-player.69d19599.js, line 1: DUPLICATE_REQUEST_ERROR: DUPLICATE_REQUEST_ERROR: Already sent this request (GET::https://api-partner.spotify.com/pathfinder/v1/query::{"operationName":"areAlbumsInLibrary","variables":"{\"uris\":[\"spotify:album:3bTjPEgPzm1XwXsNlMVHhs\"]}","extensions":"{\"persistedQuery\":{\"version\":1,\"sha256Hash\":\"beaad62a3d5556d70764cebb98b588e44a0c06ade6136f6972aaca4e91f93807\"}}"})
+1711470973054	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/web-player.69d19599.js, line 1: PlayerAPIClientError: No such device.
+1711470989527	Marionette	INFO	Stopped listening on port 62235
+JavaScript warning: https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.021f72ad.js, line 1: Script terminated by timeout at:
+i@https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.021f72ad.js:1:77804
+
+1711470996136	Marionette	INFO	Stopped listening on port 63020
+1711471004762	geckodriver	INFO	Listening on 127.0.0.1:63327
+1711471005274	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/c2/hn7s3z5d48q5rs9vg81jg4dw0000gn/T/rust_mozprofileAnoBRF"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1711471005517	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-no-sandbox"
+console.error: "Warning: unrecognized command line flag" "-ignore-certificate-errors"
+console.error: "Warning: unrecognized command line flag" "-log-level"
+console.error: "Warning: unrecognized command line flag" "-disable-notifications"
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1711471005714	Marionette	INFO	Listening on port 63335
+WebDriver BiDi listening on ws://127.0.0.1:63328
+1711471005733	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1711471005736	RemoteAgent	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"[::ffff:7f00:1]:63326","sslProxy":"[::ffff:7f00:1]:63326"}
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:63328/devtools/browser/2ab22f76-c31c-4af2-8719-7cd639528b19
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1711471013865	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1711471035627	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/web-player.69d19599.js, line 1: PlayerAPIClientError: No such device.
+JavaScript error: chrome://browser/content/browser.js, line 4692: TypeError: gBrowser is undefined

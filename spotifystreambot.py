@@ -1,28 +1,32 @@
 #!/usr/bin/env python3
+import logging
 import os
 import random
 import time
 import webbrowser
 
-print("Starting the script...")
 # import keyboard
 import pytz
-
-# import requests
-
-print("3Starting the script...")
-
+from colorama import Fore
+from pystyle import Center, Colorate, Colors
 from selenium.common.exceptions import NoSuchElementException
+# to add capabilities for chrome and firefox, import their Options with different aliases
+from selenium.webdriver.chrome.options import Options as ChromeOptions
 # from selenium.webdriver.chrome.options import Options
 # from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.common.by import By
-# from colorama import Fore
-# from pystyle import Center, Colorate, Colors
+from selenium.webdriver.firefox.options import Options as FirefoxOptions
 from seleniumwire import webdriver
+# import webdriver for downloading respective driver for the browser
+from webdriver_manager.chrome import ChromeDriverManager
+from webdriver_manager.firefox import GeckoDriverManager
+
+# import requests
+
+
 
 # from .driver_initialization import Initializer
 
-print("2Starting the script...")
 
 # os.system(f"title Kichi779 - Spotify Streaming bot v1 ")
 
@@ -53,15 +57,7 @@ url = "https://github.com/Kichi779/Spotify-Streaming-Bot/"
 supported_timezones = pytz.all_timezones
 
 
-import logging
 
-# to add capabilities for chrome and firefox, import their Options with different aliases
-from selenium.webdriver.chrome.options import Options as ChromeOptions
-from selenium.webdriver.firefox.options import Options as FirefoxOptions
-from seleniumwire import webdriver
-# import webdriver for downloading respective driver for the browser
-from webdriver_manager.chrome import ChromeDriverManager
-from webdriver_manager.firefox import GeckoDriverManager
 
 logger = logging.getLogger(__name__)
 format = logging.Formatter(
@@ -150,23 +146,24 @@ def main():
     # if not check_for_updates():
     #     return
 #     announcement = print_announcement()
-#     print(Colorate.Vertical(Colors.white_to_green, Center.XCenter("""
+    print(Colorate.Vertical(Colors.white_to_green, Center.XCenter("""
            
-#                        ▄█   ▄█▄  ▄█    ▄████████    ▄█    █▄     ▄█  
-#                        ███ ▄███▀ ███   ███    ███   ███    ███   ███  
-#                        ███▐██▀   ███▌  ███    █▀    ███    ███   ███▌ 
-#                       ▄█████▀    ███▌  ███         ▄███▄▄▄▄███▄▄ ███▌ 
-#                      ▀▀█████▄    ███▌  ███        ▀▀███▀▀▀▀███▀  ███▌ 
-#                        ███▐██▄   ███   ███    █▄    ███    ███   ███  
-#                        ███ ▀███▄ ███   ███    ███   ███    ███   ███  
-#                        ███   ▀█▀ █▀    ████████▀    ███    █▀    █▀   
-#                        ▀                                             
-#  Improvements can be made to the code. If you're getting an error, visit my discord.  
-#                              Github  github.com/kichi779    """)))
-#     print("")
-#     print(Colors.red, Center.XCenter("ANNOUNCEMENT"))
-#     print(Colors.yellow, Center.XCenter(f"{announcement}"))
-#     print("")
+                       ▄█   ▄█▄  ▄█    ▄████████    ▄█    █▄     ▄█  
+                       ███ ▄███▀ ███   ███    ███   ███    ███   ███  
+                       ███▐██▀   ███▌  ███    █▀    ███    ███   ███▌ 
+                      ▄█████▀    ███▌  ███         ▄███▄▄▄▄███▄▄ ███▌ 
+                     ▀▀█████▄    ███▌  ███        ▀▀███▀▀▀▀███▀  ███▌ 
+                       ███▐██▄   ███   ███    █▄    ███    ███   ███  
+                       ███ ▀███▄ ███   ███    ███   ███    ███   ███  
+                       ███   ▀█▀ █▀    ████████▀    ███    █▀    █▀   
+                       ▀                                             
+ Improvements can be made to the code. If you're getting an error, visit my discord.  
+                             Github  github.com/kichi779    """)))
+    print("")
+    print(Colors.red, Center.XCenter("ANNOUNCEMENT"))
+    print(Colors.yellow, Center.XCenter(f"yellows"))
+    # print(Colors.yellow, Center.XCenter(f"{announcement}"))
+    print("")
 
     user_agents = [
     # Chrome (Windows)
@@ -208,14 +205,12 @@ def main():
     "sv-SE", "da-DK", "no-NO"
     ]
 
-    chrome_path = 'C:\Program Files\Google\Chrome\Application\chrome.exe'
-    driver_path = 'chromedriver.exe'
-
     random_user_agent = random.choice(user_agents)
 
     with open('accounts.txt', 'r') as file:
         accounts = file.readlines()
 
+    # TODO consider using proxies, or connect to nordvpn/windscribe api
     # proxies = []
 
     # use_proxy = input(Colorate.Vertical(Colors.green_to_blue, "Do you want to use proxies? (y/n):"))
@@ -226,7 +221,8 @@ def main():
     #         proxies = file.readlines()
     #     time.sleep(3)
 
-    spotify_song = "https://open.spotify.com/track/1dzWH11jyP8gEQia6rZv7f?si=122335bd4f0e434c"
+    # spotify_song = "https://open.spotify.com/track/1dzWH11jyP8gEQia6rZv7f?si=122335bd4f0e434c" #so waht
+    spotify_song = "https://open.spotify.com/track/6efkcs2aUBMFKxl0cl2JWQ?si=67a92459bdb9445c" #wild irish
     # spotify_song = input(Colorate.Vertical(Colors.green_to_blue, "Enter the Spotify song URL (e.g https://open.spotify.com/track/5hFkGfx038V0LhqI0Uff2J?si=bf290dcc9a994c36):"))
 
     drivers = []
@@ -302,12 +298,13 @@ def main():
         except Exception as e:
             print("An error occurred in the bot system:", str(e))
 
-        set_random_timezone(driver)
+        # TODO reimplement these
+        # set_random_timezone(driver)
         
-        # FAKE LOCATION
-        latitude = random.uniform(-90, 90)
-        longitude = random.uniform(-180, 180)
-        set_fake_geolocation(driver, latitude, longitude)
+        # # FAKE LOCATION
+        # latitude = random.uniform(-90, 90)
+        # longitude = random.uniform(-180, 180)
+        # set_fake_geolocation(driver, latitude, longitude)
 
         drivers.append(driver)
 
