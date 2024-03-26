@@ -102,10 +102,13 @@ class Initializer:
                     'no_proxy': 'localhost, 127.0.0.1'
                 }
                 logger.info("Using: {}".format(self.proxy))
-                return webdriver.Chrome(executable_path=ChromeDriverManager().install(),
+                return webdriver.Chrome(executable_path="/Applications/chrome/mac_arm-121.0.6167.85/chrome-mac-arm64/Google Chrome for Testing.app",
+                # return webdriver.Chrome(executable_path=ChromeDriverManager().install(),
                                         options=self.set_properties(browser_option), seleniumwire_options=options)
 
-            return webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=self.set_properties(browser_option))
+            return webdriver.Chrome(executable_path="/Users/godye/github/Spotify-Streaming-Bot/chromedriver-mac-arm64/chromedriver", options=self.set_properties(browser_option))
+            # return webdriver.Chrome(executable_path="/Applications/chrome/mac_arm-121.0.6167.85/chrome-mac-arm64/Google Chrome for Testing.app", options=self.set_properties(browser_option))
+            # return webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=self.set_properties(browser_option))
         elif browser_name.lower() == "firefox":
             browser_option = FirefoxOptions()
             if self.proxy is not None:
@@ -215,14 +218,14 @@ def main():
 
     # use_proxy = input(Colorate.Vertical(Colors.green_to_blue, "Do you want to use proxies? (y/n):"))
 
-    # if use_proxy.lower() == 'y':
+    # if use_proxy.lower() == 'y':  
     #     print(Colors.red, Center.XCenter("The proxy system will be added after 50 stars. I continue to process without a proxy"))
     #     with open('proxy.txt', 'r') as file:
     #         proxies = file.readlines()
     #     time.sleep(3)
 
-    # spotify_song = "https://open.spotify.com/track/1dzWH11jyP8gEQia6rZv7f?si=122335bd4f0e434c" #so waht
-    spotify_song = "https://open.spotify.com/track/6efkcs2aUBMFKxl0cl2JWQ?si=67a92459bdb9445c" #wild irish
+    spotify_song = "https://open.spotify.com/track/1dzWH11jyP8gEQia6rZv7f?si=122335bd4f0e434c" #so waht
+    # spotify_song = "https://open.spotify.com/track/6efkcs2aUBMFKxl0cl2JWQ?si=67a92459bdb9445c" #wild irish
     # spotify_song = input(Colorate.Vertical(Colors.green_to_blue, "Enter the Spotify song URL (e.g https://open.spotify.com/track/5hFkGfx038V0LhqI0Uff2J?si=bf290dcc9a994c36):"))
 
     drivers = []
@@ -250,8 +253,9 @@ def main():
         chrome_options.add_experimental_option('prefs', {
             'profile.default_content_setting_values.notifications': 2
         })
+        chrome_options.add_argument("--user-data-dir=/private/var/folders/c2/hn7s3z5d48q5rs9vg81jg4dw0000gn/T/.org.chromium.Chromium.O5oTV0/Default")
 
-        driver =  Initializer("firefox").init()
+        driver =  Initializer("chrome").init()
         # driver = webdriver.Chrome(service=Service(driver_path), options=chrome_options)
 
         username, password = account.strip().split(':')
@@ -275,7 +279,7 @@ def main():
 
             # keyboard.press_and_release('esc')
 
-            time.sleep(10)
+            time.sleep(3)
 
             try:
                 cookie = driver.find_element(By.XPATH, "//button[text()='Accept Cookies']")
@@ -287,9 +291,11 @@ def main():
                 except NoSuchElementException:
                     time.sleep(delay2)
 
+            time.sleep(2)
             playmusic_xpath = "(//button[@data-testid='play-button']//span)[3]"
             playmusic = driver.find_element(By.XPATH, playmusic_xpath)
             playmusic.click()
+            print("clicked")
 
             time.sleep(1)
 

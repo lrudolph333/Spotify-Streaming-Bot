@@ -147,3 +147,189 @@ console.warn: LoginRecipes: "Falling back to a synchronous message for: https://
 1711471035627	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
 JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/web-player.69d19599.js, line 1: PlayerAPIClientError: No such device.
 JavaScript error: chrome://browser/content/browser.js, line 4692: TypeError: gBrowser is undefined
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.021f72ad.js, line 1: EMEError: No supported keysystem was found.
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.021f72ad.js, line 1: PlaybackError: No supported keysystem was found.
+1   HIToolbox                           0x00000001a77a85c8 _ZN15MenuBarInstance22EnsureAutoShowObserverEv + 120
+2   HIToolbox                           0x00000001a77a8188 _ZN15MenuBarInstance14EnableAutoShowEv + 60
+3   HIToolbox                           0x00000001a77158bc _ZN15MenuBarInstance21UpdateAggregateUIModeE21MenuBarAnimationStylehhh + 1184
+4   HIToolbox                           0x00000001a77a8004 _ZN15MenuBarInstance19SetFullScreenUIModeEjj + 180
+5   AppKit                              0x00000001a1597d1c -[NSApplication _setPresentationOptions:instance:flags:] + 956
+6   AppKit                              0x00000001a142d928 -[NSApplication _updateFullScreenPresentationOptionsForInstance:] + 404
+7   CoreFoundation                      0x000000019e04a560 __CFNOTIFICATIONCENTER_IS_CALLING_OUT_TO_AN_OBSERVER__ + 148
+8   CoreFoundation                      0x000000019e0e8044 ___CFXRegistrationPost_block_invoke + 88
+9   CoreFoundation                      0x000000019e0e7f8c _CFXRegistrationPost + 440
+10  CoreFoundation                      0x000000019e01bb64 _CFXNotificationPost + 708
+11  Foundation                          0x000000019ef0b38c -[NSNotificationCenter postNotificationName:object:userInfo:] + 88
+12  AppKit                              0x00000001a15982a0 spacesNotificationHandler + 96
+13  SkyLight                            0x00000001a2c85214 _ZN12_GLOBAL__N_123notify_datagram_handlerEj15CGSDatagramTypePvmS1_ + 896
+14  SkyLight                            0x00000001a2fb14d4 _ZN21CGSDatagramReadStream26dispatchMainQueueDatagramsEv + 228
+15  SkyLight                            0x00000001a2fb13d0 ___ZN21CGSDatagramReadStream15mainQueueWakeupEv_block_invoke + 28
+16  libdispatch.dylib                   0x000000019ddec9dc _dispatch_call_block_and_release + 32
+17  libdispatch.dylib                   0x000000019ddee504 _dispatch_client_callout + 20
+18  libdispatch.dylib                   0x000000019ddfcd1c _dispatch_main_queue_drain + 928
+19  libdispatch.dylib                   0x000000019ddfc96c _dispatch_main_queue_callback_4CF + 44
+20  CoreFoundation                      0x000000019e096d40 __CFRUNLOOP_IS_SERVICING_THE_MAIN_DISPATCH_QUEUE__ + 16
+21  CoreFoundation                      0x000000019e0547c0 __CFRunLoopRun + 2036
+22  CoreFoundation                      0x000000019e053878 CFRunLoopRunSpecific + 612
+23  HIToolbox                           0x00000001a7733fa0 RunCurrentEventLoopInMode + 292
+24  HIToolbox                           0x00000001a7733de4 ReceiveNextEventCommon + 672
+25  HIToolbox                           0x00000001a7733b2c _BlockUntilNextEventMatchingListInModeWithFilter + 72
+26  AppKit                              0x00000001a12d9838 _DPSNextEvent + 632
+27  AppKit                              0x00000001a12d89c8 -[NSApplication(NSEvent) _nextEventMatchingEventMask:untilDate:inMode:dequeue:] + 728
+28  XUL                                 0x00000001162aea64 XUL + 18180708
+29  AppKit                              0x00000001a12ccdf8 -[NSApplication run] + 464
+30  XUL                                 0x00000001191774dc XRE_GetBootstrap + 43912100
+31  XUL                                 0x00000001162afa64 XUL + 18184804
+32  XUL                                 0x0000000119a7ffb0 XRE_GetBootstrap + 53384824
+33  XUL                                 0x00000001167956cc XUL + 23320268
+34  XUL                                 0x0000000119b13f1c XRE_GetBootstrap + 53990884
+35  XUL                                 0x0000000119b14334 XRE_GetBootstrap + 53991932
+36  firefox                             0x000000010435e338 firefox + 25400
+37  dyld                                0x000000019dc4be50 start + 2544
+1   HIToolbox                           0x00000001a773390c _ZN15MenuBarInstance22RemoveAutoShowObserverEv + 44
+2   HIToolbox                           0x00000001a7772478 _ZL17BroadcastInternaljPvh + 184
+3   SkyLight                            0x00000001a2c85214 _ZN12_GLOBAL__N_123notify_datagram_handlerEj15CGSDatagramTypePvmS1_ + 896
+4   SkyLight                            0x00000001a2fb14d4 _ZN21CGSDatagramReadStream26dispatchMainQueueDatagramsEv + 228
+5   SkyLight                            0x00000001a2fb13d0 ___ZN21CGSDatagramReadStream15mainQueueWakeupEv_block_invoke + 28
+6   libdispatch.dylib                   0x000000019ddec9dc _dispatch_call_block_and_release + 32
+7   libdispatch.dylib                   0x000000019ddee504 _dispatch_client_callout + 20
+8   libdispatch.dylib                   0x000000019ddfcd1c _dispatch_main_queue_drain + 928
+9   libdispatch.dylib                   0x000000019ddfc96c _dispatch_main_queue_callback_4CF + 44
+10  CoreFoundation                      0x000000019e096d40 __CFRUNLOOP_IS_SERVICING_THE_MAIN_DISPATCH_QUEUE__ + 16
+11  CoreFoundation                      0x000000019e0547c0 __CFRunLoopRun + 2036
+12  CoreFoundation                      0x000000019e053878 CFRunLoopRunSpecific + 612
+13  HIToolbox                           0x00000001a7733fa0 RunCurrentEventLoopInMode + 292
+14  HIToolbox                           0x00000001a7733de4 ReceiveNextEventCommon + 672
+15  HIToolbox                           0x00000001a7733b2c _BlockUntilNextEventMatchingListInModeWithFilter + 72
+16  AppKit                              0x00000001a12d9838 _DPSNextEvent + 632
+17  AppKit                              0x00000001a12d89c8 -[NSApplication(NSEvent) _nextEventMatchingEventMask:untilDate:inMode:dequeue:] + 728
+18  XUL                                 0x00000001162aea64 XUL + 18180708
+19  AppKit                              0x00000001a12ccdf8 -[NSApplication run] + 464
+20  XUL                                 0x00000001191774dc XRE_GetBootstrap + 43912100
+21  XUL                                 0x00000001162afa64 XUL + 18184804
+22  XUL                                 0x0000000119a7ffb0 XRE_GetBootstrap + 53384824
+23  XUL                                 0x00000001167956cc XUL + 23320268
+24  XUL                                 0x0000000119b13f1c XRE_GetBootstrap + 53990884
+25  XUL                                 0x0000000119b14334 XRE_GetBootstrap + 53991932
+26  firefox                             0x000000010435e338 firefox + 25400
+27  dyld                                0x000000019dc4be50 start + 2544
+1   HIToolbox                           0x00000001a77a85c8 _ZN15MenuBarInstance22EnsureAutoShowObserverEv + 120
+2   HIToolbox                           0x00000001a7772478 _ZL17BroadcastInternaljPvh + 184
+3   SkyLight                            0x00000001a2c85214 _ZN12_GLOBAL__N_123notify_datagram_handlerEj15CGSDatagramTypePvmS1_ + 896
+4   SkyLight                            0x00000001a2fb14d4 _ZN21CGSDatagramReadStream26dispatchMainQueueDatagramsEv + 228
+5   SkyLight                            0x00000001a2fb13d0 ___ZN21CGSDatagramReadStream15mainQueueWakeupEv_block_invoke + 28
+6   libdispatch.dylib                   0x000000019ddec9dc _dispatch_call_block_and_release + 32
+7   libdispatch.dylib                   0x000000019ddee504 _dispatch_client_callout + 20
+8   libdispatch.dylib                   0x000000019ddfcd1c _dispatch_main_queue_drain + 928
+9   libdispatch.dylib                   0x000000019ddfc96c _dispatch_main_queue_callback_4CF + 44
+10  CoreFoundation                      0x000000019e096d40 __CFRUNLOOP_IS_SERVICING_THE_MAIN_DISPATCH_QUEUE__ + 16
+11  CoreFoundation                      0x000000019e0547c0 __CFRunLoopRun + 2036
+12  CoreFoundation                      0x000000019e053878 CFRunLoopRunSpecific + 612
+13  HIToolbox                           0x00000001a7733fa0 RunCurrentEventLoopInMode + 292
+14  HIToolbox                           0x00000001a7733de4 ReceiveNextEventCommon + 672
+15  HIToolbox                           0x00000001a7733b2c _BlockUntilNextEventMatchingListInModeWithFilter + 72
+16  AppKit                              0x00000001a12d9838 _DPSNextEvent + 632
+17  AppKit                              0x00000001a12d89c8 -[NSApplication(NSEvent) _nextEventMatchingEventMask:untilDate:inMode:dequeue:] + 728
+18  XUL                                 0x00000001162aea64 XUL + 18180708
+19  AppKit                              0x00000001a12ccdf8 -[NSApplication run] + 464
+20  XUL                                 0x00000001191774dc XRE_GetBootstrap + 43912100
+21  XUL                                 0x00000001162afa64 XUL + 18184804
+22  XUL                                 0x0000000119a7ffb0 XRE_GetBootstrap + 53384824
+23  XUL                                 0x00000001167956cc XUL + 23320268
+24  XUL                                 0x0000000119b13f1c XRE_GetBootstrap + 53990884
+25  XUL                                 0x0000000119b14334 XRE_GetBootstrap + 53991932
+26  firefox                             0x000000010435e338 firefox + 25400
+27  dyld                                0x000000019dc4be50 start + 2544
+JavaScript warning: , line 0: Script terminated by timeout at:
+
+1711471202652	Marionette	INFO	Stopped listening on port 63335
+1711471496545	geckodriver	INFO	Listening on 127.0.0.1:49746
+1711471496931	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/c2/hn7s3z5d48q5rs9vg81jg4dw0000gn/T/rust_mozprofileXE8vBz"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1711471497199	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-no-sandbox"
+console.error: "Warning: unrecognized command line flag" "-ignore-certificate-errors"
+console.error: "Warning: unrecognized command line flag" "-log-level"
+console.error: "Warning: unrecognized command line flag" "-disable-notifications"
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1711471497383	Marionette	INFO	Listening on port 49754
+WebDriver BiDi listening on ws://127.0.0.1:49747
+1711471497464	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1711471497467	RemoteAgent	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"[::ffff:7f00:1]:49745","sslProxy":"[::ffff:7f00:1]:49745"}
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:49747/devtools/browser/46dacb13-3066-4a43-817c-5b204d952b6f
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+JavaScript error: , line 0: uncaught exception: Object
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+JavaScript error: , line 0: TypeError: NetworkError when attempting to fetch resource.
+1711471504308	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: chrome://browser/content/preferences/moreFromMozilla.js, line 83: TypeError: Region.home is null
+1711471527229	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript error: resource:///modules/sessionstore/SessionStore.sys.mjs, line 3773: TypeError: this._windows[aWindow.__SSi] is undefined
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1711471564052	geckodriver	INFO	Listening on 127.0.0.1:49940
+1711471564565	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/c2/hn7s3z5d48q5rs9vg81jg4dw0000gn/T/rust_mozprofileIFzMH3"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1711471564763	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-no-sandbox"
+console.error: "Warning: unrecognized command line flag" "-ignore-certificate-errors"
+console.error: "Warning: unrecognized command line flag" "-log-level"
+console.error: "Warning: unrecognized command line flag" "-disable-notifications"
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1711471564918	Marionette	INFO	Listening on port 49948
+WebDriver BiDi listening on ws://127.0.0.1:49941
+1711471565045	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1711471565048	RemoteAgent	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"[::ffff:7f00:1]:49939","sslProxy":"[::ffff:7f00:1]:49939"}
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:49941/devtools/browser/020a5571-ac1c-404e-8a9e-2442a6a57320
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+1711471572804	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+1711471595232	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript error: resource://gre/modules/PrivateBrowsingUtils.sys.mjs, line 19: TypeError: aWindow is null
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+1711471602552	geckodriver	INFO	Listening on 127.0.0.1:50129
+1711471603064	mozrunner::runner	INFO	Running command: MOZ_CRASHREPORTER="1" MOZ_CRASHREPORTER_NO_REPORT="1" MOZ_CRASHREPORTER_SHUTDOWN="1" MOZ_NO_REMOTE="1" "/App ... s" "localhost" "-foreground" "-no-remote" "-profile" "/var/folders/c2/hn7s3z5d48q5rs9vg81jg4dw0000gn/T/rust_mozprofilezJOtXd"
+console.warn: services.settings: Ignoring preference override of remote settings server
+console.warn: services.settings: Allow by setting MOZ_REMOTE_SETTINGS_DEVTOOLS=1 in the environment
+1711471603260	Marionette	INFO	Marionette enabled
+console.error: "Warning: unrecognized command line flag" "-no-sandbox"
+console.error: "Warning: unrecognized command line flag" "-ignore-certificate-errors"
+console.error: "Warning: unrecognized command line flag" "-log-level"
+console.error: "Warning: unrecognized command line flag" "-disable-notifications"
+console.error: "Warning: unrecognized command line flag" "-remote-allow-hosts"
+1711471603407	Marionette	INFO	Listening on port 50137
+WebDriver BiDi listening on ws://127.0.0.1:50130
+1711471603482	RemoteAgent	WARN	TLS certificate errors will be ignored for this session
+1711471603485	RemoteAgent	INFO	Proxy settings initialised: {"proxyType":"manual","httpProxy":"[::ffff:7f00:1]:50128","sslProxy":"[::ffff:7f00:1]:50128"}
+UNSUPPORTED (log once): POSSIBLE ISSUE: unit 1 GLD_TEXTURE_INDEX_2D is unloadable and bound to sampler type (Float) - using zero texture because texture unloadable
+DevTools listening on ws://127.0.0.1:50130/devtools/browser/553d9896-8622-49be-9645-db20608bfc4e
+console.warn: LoginRecipes: "Falling back to a synchronous message for: https://accounts.spotify.com."
+JavaScript warning: https://bat.bing.com/bat.js, line 1: Script terminated by timeout at:
+UET/this.clone@https://bat.bing.com/bat.js:1:39206
+UET/this.combine@https://bat.bing.com/bat.js:1:39324
+UET/this.fireSendBeacon@https://bat.bing.com/bat.js:1:40638
+UET/this.firePageHide@https://bat.bing.com/bat.js:1:40281
+
+1711471611468	Marionette	WARN	Ignoring event 'DOMContentLoaded' because document has an invalid readyState of 'complete'.
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/web-player.0f458f64.js, line 1: DUPLICATE_REQUEST_ERROR: DUPLICATE_REQUEST_ERROR: Already sent this request (GET::https://api-partner.spotify.com/pathfinder/v1/query::{"operationName":"areAlbumsInLibrary","variables":"{\"uris\":[\"spotify:album:3bTjPEgPzm1XwXsNlMVHhs\"]}","extensions":"{\"persistedQuery\":{\"version\":1,\"sha256Hash\":\"beaad62a3d5556d70764cebb98b588e44a0c06ade6136f6972aaca4e91f93807\"}}"})
+1711471634675	addons.xpi	ERROR	System addon update list error SyntaxError: XMLHttpRequest.open: 'http://%(server)s/dummy-system-addons.xml' is not a valid URL.
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/web-player.0f458f64.js, line 1: PlayerAPIClientError: No such device.
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.021f72ad.js, line 1: EMEError: No supported keysystem was found.
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.021f72ad.js, line 1: PlaybackError: No supported keysystem was found.
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.021f72ad.js, line 1: DealerError: Cannot connect to dealer
+JavaScript error: https://open.spotifycdn.com/cdn/build/web-player/vendor~web-player.021f72ad.js, line 1: DealerError: Cannot connect to dealer
+JavaScript error: resource://gre/modules/PrivateBrowsingUtils.sys.mjs, line 19: TypeError: aWindow is null
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
+Exiting due to channel error.
